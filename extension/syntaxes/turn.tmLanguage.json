@@ -9,16 +9,16 @@
             "include": "#comments"
         },
         {
-            "name": "keyword.control.states",
-            "match": "\\b(statemachine|state|event|=>)\\b"
+            "name": "keyword.operator.states",
+            "match": "\\b(actor|false|=>)\\b"
         },
         {
             "name": "keyword.operator.states",
-            "match": "\\=\\>"
+            "match": "\\b(task|goal|softgoal|=>)\\b"
         },
         {
             "name": "constant.numeric.states",
-            "match": "\\b[1-9][0-9]*\\b"
+            "match": "\\b(contributesTo|dependsOn|=>)\\b"
         },
         {
             "name": "string.quoted.double.states",
