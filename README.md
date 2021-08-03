@@ -3,7 +3,7 @@ TGRL Language support for Collaborative Modelling using Visual Studio Code exten
 Provides language support via [TGRL Language Server](https://github.com/JUCMNAV/TURNEditor/tree/vscode-lsp).
 
 # Demonstration Video
-[![Demo]()](https://youtu.be/3fqXI3tiQjw)
+[![Demo](https://github.com/Rijul5/vscode-turn/blob/main/Data/screenshot.png)](https://youtu.be/3fqXI3tiQjw)
 
 # Quick Start (using VSIX file)
 ============
