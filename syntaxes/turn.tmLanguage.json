@@ -1,0 +1,23 @@
+{
+	"scopeName": "source.turn",
+	"name": "Turn",
+	"fileTypes": ["turn"],
+	"patterns": [
+		{
+			"name": "keyword.main.graph",
+			"match": "(?<=[^\\w-]|^)(urnModel)(?=[^\\w-]|$)"
+		},
+		{
+			"name": "keyword.main.module",
+			"match": "(?<=[^\\w-]|^)(actor|goal|softgoal|task|strategy)(?=[^\\w-]|$)"
+		},
+		{
+			"name": "keyword.other.turn",
+			"match": "(?<=[^\\w-]|^)(dependsOn|contributesTo)(?=[^\\w-]|$)"
+		},
+		{
+			"name": "constant.numeric.states",
+			"match": "(?<=[^\\w-]|^)(importance)(?=[^\\w-]|$)"
+		}
+	]
+}

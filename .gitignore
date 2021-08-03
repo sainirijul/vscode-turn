@@ -1,8 +1,5 @@
-node_modules
-lib
-bin
-*.log
-pack
-*.vsix
-src-gen/
-*.tgz
+node_modules/
+/extension/lib/
+/extension/pack/
+turn-language-server.zip
+turn-error.log

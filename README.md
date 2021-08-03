@@ -1,17 +1,11 @@
-# TURN VS Code Extension
+TGRL Language support for Collaborative Modelling using Visual Studio Code extensions
+=====================
 
-This folder contains an example VS Code extension with an Xtext-based language server and a Sprotty diagram for TURN.
+Provides language support via [TGRL Language Server](https://github.com/JUCMNAV/TURNEditor/tree/vscode-lsp).
 
-## Build
+Quick Start
+============
+1. Install the Visual Studio (VS) Code application on your system from [here](https://code.visualstudio.com/download).
 
-Language server
-```
-language-server/gradlew -p language-server unzipServer
-```
 
-Extension
-```
-yarn --cwd webview
-yarn --cwd extension
-```
 

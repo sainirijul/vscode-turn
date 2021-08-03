@@ -1,0 +1,157 @@
+{
+    "name": "vscode-xtext-turn",
+    "displayName": "TURN VS Code Extension",
+    "description": "An example Xtext-based DSL with Sprotty diagrams for TURN",
+    "publisher": "RijulSaini",
+    "version":"0.0.2",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Rijul5/vscode-turn"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "turn",
+        "diagram",
+        "modeling",
+        "network",
+        "netconf"
+    ],
+    "files": [
+        "extension",
+        "server",
+        "syntaxes",
+        "webview"
+    ],
+    "main": "./extension/pack/extension",
+    "activationEvents": [
+        "onLanguage:turn",
+        "onCommand:turn.diagram.open"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "turn",
+                "aliases": [
+                    "Turn",
+                    "turn"
+                ],
+                "extensions": [
+                    ".turn"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "turn",
+                "scopeName": "source.turn",
+                "path": "./syntaxes/turn.tmLanguage.json"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Turn client configuration",
+            "properties": {
+                "turnLanguageServer.maxNumberOfProblems": {
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "turn.diagram.open",
+                "title": "Open in Diagram",
+                "category": "Turn Diagram"
+            },
+            {
+                "command": "turn.diagram.fit",
+                "title": "Fit to Screen",
+                "category": "Turn Diagram"
+            },
+            {
+                "command": "turn.diagram.center",
+                "title": "Center Selection",
+                "category": "Turn Diagram"
+            },
+            {
+                "command": "turn.diagram.export",
+                "title": "Export Diagram to SVG",
+                "category": "Turn Diagram"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorLangId==turn",
+                    "command": "turn.diagram.open",
+                    "group": "navigation"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "when": "resourceExtname == '.turn'",
+                    "command": "turn.diagram.open",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                        "command": "turn.diagram.open",
+                        "when": "view == symbols || viewItem == symbol"
+                    }
+                ]
+        },
+        "keybindings": [
+            {
+                "key": "alt+f",
+                "mac": "alt+f",
+                "command": "turn.diagram.fit",
+                "when": "turn-diagram-focused"
+            },
+            {
+                "key": "alt+c",
+                "mac": "alt+c",
+                "command": "turn.diagram.center",
+                "when": "turn-diagram-focused"
+            },
+            {
+                "key": "alt+e",
+                "mac": "alt+e",
+                "command": "turn.diagram.export",
+                "when": "turn-diagram-focused"
+            }
+        ]
+    },
+    "dependencies": {
+        "sprotty-vscode": "0.0.25",
+        "vscode-languageclient": "^5.2.1"
+    },
+    "devDependencies": {
+        "@types/node": "^10.17.16",
+        "@types/vscode": "1.22.0",
+        "ts-loader": "^6.2.2",
+        "tslint": "^6.1.3",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
+    },
+    "scripts": {
+        "prepare": "yarn --cwd webview",
+        "vscode:prepublish": "yarn clean && yarn lint && webpack --mode=production && yarn --cwd webview vscode:prepublish",
+        "clean": "rm -rf ./extension/lib ./extension/pack",
+        "build": "webpack --mode=development && yarn lint",
+        "watch": "webpack --mode=development --watch",
+        "lint": "tslint -c ./tslint.json --project ./tsconfig.json"
+    },
+    "galleryBanner": {
+        "color": "#1d1d1d",
+        "theme": "dark"
+    }
+}

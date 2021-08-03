@@ -1,22 +1,14 @@
 // @ts-check
 const path = require('path');
 
-const outputPath = path.resolve(__dirname, '../extension/pack');
-
 /**@type {import('webpack').Configuration}*/
 const config = {
-    target: 'web',
-
-    entry: path.resolve(__dirname, 'src/main.ts'),
+    entry: './src/main.ts',
     output: {
-		filename: 'webview.js',
-        path: outputPath
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'pack')
     },
-    devtool: 'eval-source-map',
-
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    },
+    target: 'web',
     module: {
         rules: [
             {
@@ -35,7 +27,13 @@ const config = {
             }
         ]
     },
-    node : { fs: 'empty', net: 'empty' }
+    devtool: 'eval-source-map',
+    node: {
+        fs: 'empty',
+        child_process: 'empty',
+        net: 'empty',
+        crypto: 'empty'
+    }
 };
 
 module.exports = config;

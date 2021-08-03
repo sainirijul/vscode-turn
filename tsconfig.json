@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
+        "module": "commonjs",
+        "target": "es6",
+        "outDir": "extension/lib",
+        "lib": [
+            "es6"
+        ],
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "extension/src"
+    ]
+}
