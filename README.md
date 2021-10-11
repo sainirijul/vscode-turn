@@ -3,7 +3,10 @@ TGRL Language support for Collaborative Modelling using Visual Studio Code exten
 Provides language support via [TGRL Language Server](https://github.com/JUCMNAV/TURNEditor/tree/vscode-lsp).
 
 # Demonstration Video
-[![Demo]()](https://youtu.be/3fqXI3tiQjw)
+[![Demo](https://github.com/Rijul5/vscode-turn/blob/main/data/screenshot.png)](https://youtu.be/3fqXI3tiQjw)
+
+
+During the hands-on sessions, participants have two options to use our tool - (1) Using VS Code desktop-based application (highly recommended) and (2) Using web-based VS Code views in browser. The second option provides limited support for the features of the TGRL extension. For example, the code highlighting feature and visualization of diagrams are currently not supported by the web-based VS Code views in a browser. However, participants will be still able to edit the textual TGRL models collaborate using the second option.
 
 # Quick Start (using VSIX file)
 ============
@@ -30,6 +33,8 @@ ext install MS-vsliveshare.vsliveshare-pack
 
 5. Click on the "LiveShare" option in the bottom left corner of VS Code to start a collaboration session
 
+6. Modeller can then create TGRL Models (file with .turn extension) collaboratively. For quick start, we have provided a sample TGRL model "example.turn" in the "examples" folder of this repository.
+
 
 # Launching Extension in the Extension Development Mode
 ============
@@ -45,7 +50,7 @@ cd workspace
 code .
 ```
 
-2. Inside VS Code, run the below command in the terminal
+2. Inside VS Code, run the below commands in the terminal
 ```
 yarn
 yarn build
