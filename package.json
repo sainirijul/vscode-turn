@@ -3,7 +3,7 @@
     "displayName": "TURN VS Code Extension",
     "description": "An example Xtext-based DSL with Sprotty diagrams for TURN",
     "publisher": "RijulSaini",
-    "version":"0.0.2",
+    "version":"0.0.3",
     "engines": {
         "vscode": "^1.46.0"
     },

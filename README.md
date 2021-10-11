@@ -51,7 +51,7 @@ yarn
 yarn build
 ```
 
-3. Launch Extension Deveopment Mode" by pressing the key "CTRL + SHIFT + P"
+3. Launch Extension Development Mode" by pressing the key "F5"
 
 4. Click on the "LiveShare" option in the bottom left corner of VS Code to start a collaboration session
 

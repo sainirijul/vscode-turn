@@ -14,7 +14,8 @@ import {
 } from 'vscode-languageclient';
 import { SprottyDiagramIdentifier, SprottyWebview } from 'sprotty-vscode';
 import { SprottyLspVscodeExtension, SprottyLspWebview } from 'sprotty-vscode/lib/lsp';
-// import { Console } from 'console';
+import * as vscode from 'vscode';
+let actor_name: string | undefined;
 
 let extension: SprottyLspVscodeExtension | undefined;
 
@@ -40,18 +41,32 @@ export class TurnLanguageExtension extends SprottyLspVscodeExtension {
         super('turn', context);
     }
 
-    protected getDiagramType(): string {
+    protected async getDiagramType(): Promise<string> {
+        let editor_selection = vscode.window.activeTextEditor?.selection
+        let selected_text = vscode.window.activeTextEditor?.document.getText(editor_selection)
+        if (selected_text === '') {
+            if (actor_name === undefined) {
+                actor_name = await vscode.window.showInputBox({ prompt: 'Provide Actor Name', ignoreFocusOut: true });
+                let sal = vscode.window.activeTextEditor?.selection
+                let val = vscode.window.activeTextEditor?.document.getText(sal)
+                console.log(sal)
+                console.log(val)
+            }
+        } else {
+            actor_name = selected_text
+        }
         return 'turn-diagram';
     }
 
     createWebView(identifier: SprottyDiagramIdentifier): SprottyWebview {
-        console.log("IDEMTIFIER*******", identifier)
-        return new SprottyLspWebview({
+        identifier.clientId = String(actor_name)
+        const sprottyView = new SprottyLspWebview({
             extension: this,
             identifier,
             localResourceRoots: ['webview/pack'],
             scriptPath: 'webview/pack/bundle.js'
         });
+        return sprottyView;
     }
 
     protected activateLanguageClient(context: ExtensionContext): LanguageClient {
